@@ -1,38 +1,167 @@
+/* Basic Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white; /* Set the background to white */
+  color: black; /* Set text color to black for better contrast */
+  overflow: hidden; /* Prevent overflow on the body */
+}
+
 .App {
+  font-family: Arial, sans-serif;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Large Section for Images */
+.image-section {
+  flex-grow: 1;
+  padding: 0; /* Remove padding */
+  display: flex;
+  overflow: hidden; /* Prevent overflow in image section */
+  background-size: cover; /* Ensure the background covers the entire section */
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%; /* Ensure the image section takes full height */
+  box-sizing: border-box;
+}
+
+/* Image gallery wrapper */
+.image-gallery {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100%; /* Use full height available */
+  width: 100%; /* Ensure it takes full width */
+  position: relative; /* Positioning for nav buttons */
+  background-image: url('/images/blackbackground.jpg'); /* Relative path to the background image */
+  background-size: cover; /* Ensure background image covers the area */
+  background-position: center; /* Center the background image */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+  box-sizing: border-box; /* Prevent overflow due to padding */
+}
+
+/* Make sure the image doesn't exceed the parent container */
+.gallery-image {
+  max-width: 100vw; /* 90% of the viewport width */
+  max-height: 100vh; /* 80% of the viewport height */
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Remove white spaces and overflow */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling issues */
+}
+
+/* Navigation button styling */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.1);
   color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-button.left {
+  left: 10px; /* Position left button */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-button.right {
+  right: 10px; /* Position right button */
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Small Section for Contact Details */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #454040;
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent overflow in contact section */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff; /* Ensure text color remains white */
+  padding: 10px 15px; /* Add some padding for better clickability */
+  border-radius: 5px; /* Slightly rounded corners */
+  transition: background-color 0.3s, color 0.3s; /* Smooth hover transition */
+}
+
+.contact-link:hover {
+  background-color: #ffcc00; /* Highlight background on hover */
+  color: #000; /* Change text color on hover */
+}
+
+.contact-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer; /* Show pointer when hovering */
+}
+
+.contact-link span {
+  font-size: 1.1rem;
+  cursor: pointer; /* Make text clickable too */
+}
+
+.contact-info {
+  font-size: 1.1rem;
+}
+
+/* Media query for mobile (less than 768px width) */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column; /* Stack contact items */
+    justify-content: center; /* Center items */
+    align-items: flex-start; /* Align items to the left */
+    padding: 5px; /* Reduce padding for smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  .contact-item {
+    width: 100%; /* Ensure each contact item takes full width */
+    margin-bottom: 5px; /* Space between Instagram and Phone details */
+  }
+  
+  /* Reduce font size even further on mobile */
+  .contact-item span {
+    font-size: 1.0rem; /* Smaller font size for mobile */
+  }
+
+  .contact-logo {
+    margin-bottom: 5px; /* Space below logos on mobile */
+  }
+
+  /* Ensure no unnecessary scrolling */
+  html, body {
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: hidden; /* Disable vertical scroll */
   }
 }
